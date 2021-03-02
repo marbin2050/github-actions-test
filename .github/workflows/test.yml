@@ -7,7 +7,7 @@ on:
 
 jobs:
   keycloak-build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     defaults:
       run:
         working-directory: github-actions-test
@@ -21,4 +21,4 @@ jobs:
           java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
           architecture: x64 # (x64 or x86) - defaults to x64
       - name: Translation check
-        run: java -cp ./out/production/176071812_backend_keycloak_translation_check main.resources.TranslationCheck
+        run: java -cp .\out\production\176071812_backend_keycloak_translation_check main.resources.TranslationCheck
