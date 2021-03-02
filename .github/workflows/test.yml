@@ -2,8 +2,6 @@ name: Backend PR Test
 
 on:
   push:
-    paths:
-      - ".github/workflows/*.yml"
 
 jobs:
   keycloak-build:
