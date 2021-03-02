@@ -1,0 +1,24 @@
+name: Backend PR Test
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/*.yml"
+
+jobs:
+  keycloak-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: github-actions-test
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '13' # The JDK version to make available on the path.
+          java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
+          architecture: x64 # (x64 or x86) - defaults to x64
+      - name: Translation check
+        run: java -cp java TranslationCheck
