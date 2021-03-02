@@ -21,6 +21,3 @@ jobs:
       - name: check classpath
         run: |
             echo %CLASSPATH%
-            echo %PATH%
-      - name: Translation check
-        run: java main.resources.TranslationCheck
