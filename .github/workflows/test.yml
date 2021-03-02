@@ -20,4 +20,4 @@ jobs:
             echo %CLASSPATH%
             echo %PATH%
       - name: Translation check
-        run: java main.resources.TranslationCheck
+        run: java -cp out/production/176071812_backend_keycloak_translation_check main.resources.TranslationCheck
