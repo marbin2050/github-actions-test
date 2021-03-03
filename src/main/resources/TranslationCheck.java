@@ -179,19 +179,19 @@ public class TranslationCheck {
 
         // backend relative path
         String relative_path = "src/main/resources/";
-        System.out.println("-- Start checking backend translations --");
+        System.out.println("\n-- Start checking backend translations --");
         run_translations_check(relative_path);
         System.out.println("-- End checking Backend translations --");
 
-        // keycloak relative path for email
+        // keycloak relative path for email messages
         relative_path = "src/main/resources/themes/caseform-email/email/messages/";
-        System.out.println("-- Start checking Keycloak email translations --");
+        System.out.println("\n-- Start checking Keycloak email translations --");
         run_translations_check(relative_path);
         System.out.println("-- End checking Keycloak email translations --");
 
-        // keycloak relative path for messages
+        // keycloak relative path for login messages
         relative_path = "src/main/resources/themes/caseform-login/login/messages/";
-        System.out.println("-- Start checking Keycloak login translations --");
+        System.out.println("\n-- Start checking Keycloak login translations --");
         run_translations_check(relative_path);
         System.out.println("-- End checking Keycloak login translations --");
 
