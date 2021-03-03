@@ -153,16 +153,7 @@ public class TranslationCheck {
         }
     }
 
-    public static void main(String[] args) {
-
-        // backend relative path
-        // String relative_path = "src/main/resources/";
-
-        // keycloak relative path for email
-        // String relative_path = "src/main/resources/themes/caseform-email/email/messages/";
-
-        // keycloak relative path for messages
-        String relative_path = "src/main/resources/themes/caseform-login/login/messages/";
+    private static void run_translations_check(String relative_path) {
 
         String dir_absolute_path = new File(relative_path).getAbsolutePath();
 
@@ -180,6 +171,30 @@ public class TranslationCheck {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+
+    public static void main(String[] args) {
+
+        // backend relative path
+        String relative_path = "src/main/resources/";
+        System.out.println("-- Start checking backend translations --");
+        run_translations_check(relative_path);
+        System.out.println("-- End checking Backend translations --");
+
+        // keycloak relative path for email
+        relative_path = "src/main/resources/themes/caseform-email/email/messages/";
+        System.out.println("-- Start checking Keycloak email translations --");
+        run_translations_check(relative_path);
+        System.out.println("-- End checking Keycloak email translations --");
+
+        // keycloak relative path for messages
+        relative_path = "src/main/resources/themes/caseform-login/login/messages/";
+        System.out.println("-- Start checking Keycloak login translations --");
+        run_translations_check(relative_path);
+        System.out.println("-- End checking Keycloak login translations --");
+
 
     }
 }
