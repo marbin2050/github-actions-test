@@ -75,8 +75,10 @@ public class TranslationCheck {
             // empty string: guaranteed to be less than or equal to any other
             String previous_key = "";
             for (String current_key : props_keys) {
-                if (current_key.compareTo(previous_key) < 0)
+                if (current_key.compareTo(previous_key) < 0) {
                     System.out.println("Failed: " + file_name + " file is not sorted alphabetically");
+                    break;
+                }
                 previous_key = current_key;
             }
         }
@@ -85,7 +87,7 @@ public class TranslationCheck {
     private static ArrayList<String> get_file_name_list(String path, String extension)
             throws Exception {
 
-        ArrayList<String> file_name_list = new ArrayList<String>();
+        ArrayList<String> file_name_list = new ArrayList<>();
         File dir = new File(path);
         File[] files = dir.listFiles();
 
@@ -103,11 +105,11 @@ public class TranslationCheck {
 
     }
 
-    private static String get_default_file(ArrayList<String> file_name_list, String relative_path)
+    private static String get_default_file(ArrayList<String> file_name_list)
             throws Exception {
 
         for (String file_name : file_name_list) {
-            if (!file_name.contains("_"))
+            if (file_name.contains("_de."))
                 return file_name;
         }
         throw new Exception("Failed: No default translation file was found to compare with");
@@ -117,7 +119,7 @@ public class TranslationCheck {
             throws Exception {
 
         // get default file to compare with
-        String default_file = get_default_file(file_name_list, relative_path);
+        String default_file = get_default_file(file_name_list);
         // read default file properties
         Vector default_file_props = get_file_property_keys(default_file, relative_path);
         Collections.sort(default_file_props);  // sort alphabetically to allow comparison to other files
@@ -153,7 +155,15 @@ public class TranslationCheck {
 
     public static void main(String[] args) {
 
-        String relative_path = "src/main/resources/";
+        // backend relative path
+        // String relative_path = "src/main/resources/";
+
+        // keycloak relative path for email
+        String relative_path = "src/main/resources/themes/caseform-email/email/messages/";
+
+        // keycloak relative path for messages
+        // String relative_path = "src/main/resources/themes/caseform-login/login/messages/";
+
         String dir_absolute_path = new File(relative_path).getAbsolutePath();
 
         ArrayList<String> file_name_list = null;
