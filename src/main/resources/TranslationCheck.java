@@ -159,10 +159,10 @@ public class TranslationCheck {
         // String relative_path = "src/main/resources/";
 
         // keycloak relative path for email
-        String relative_path = "src/main/resources/themes/caseform-email/email/messages/";
+        // String relative_path = "src/main/resources/themes/caseform-email/email/messages/";
 
         // keycloak relative path for messages
-        // String relative_path = "src/main/resources/themes/caseform-login/login/messages/";
+        String relative_path = "src/main/resources/themes/caseform-login/login/messages/";
 
         String dir_absolute_path = new File(relative_path).getAbsolutePath();
 
