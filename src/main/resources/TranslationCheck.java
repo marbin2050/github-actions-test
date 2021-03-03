@@ -204,7 +204,7 @@ public class TranslationCheck {
 
         // keycloak relative path for login messages
         relative_path = "src/main/resources/themes/caseform-login/login/messages/";
-        System.out.println("\n-- Start checking Keycloak login translations --");
+        System.out.println("\n-- Star checking Keycloak login translations --");
         run_translations_check(relative_path);
         System.out.println("-- End checking Keycloak login translations --");
 
